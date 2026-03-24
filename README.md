@@ -6,3 +6,6 @@
 # 1. SQL Injection
 - Lab: SQL injection vulnerability in WHERE clause allowing retrieval of hidden data
 
+# 3. Lab: SQL injection attack, querying the database type and version on Oracle
+- This lab contains a SQL injection vulnerability in the product category filter. You can use a UNION attack to retrieve the results from an injected query. To solve the lab, display the database version string.
+

